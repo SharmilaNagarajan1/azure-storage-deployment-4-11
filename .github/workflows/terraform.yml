@@ -12,15 +12,15 @@ on:
 jobs:
   terraform:
     name: Terraform Plan or Apply
-    runs-on: Azure-Storage-Runner-1  # Change to ubuntu-latest if not using self-hosted
+    runs-on: ubuntu-latest # Change to ubuntu-latest if not using self-hosted
 
     env:
       ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
       ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
       ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
       ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
-      TF_VAR_storage_account_name: ${{ vars.TF_VAR_storage_account_name }}
-      TF_VAR_location: ${{ vars.TF_VAR_location }}
+      # TF_VAR_storage_account_name: ${{ vars.TF_VAR_storage_account_name }}
+      # TF_VAR_location: ${{ vars.TF_VAR_location }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       REPO: ${{ github.repository }}
       HEAD_BRANCH: ${{ github.head_ref || github.ref_name }}
@@ -71,7 +71,7 @@ jobs:
           echo "✅ Pull Request #$PR_NUMBER created."
 
           REVIEWER_PAYLOAD=$(jq -n \
-            '{reviewers: ["felix-081", "spz-technologies"]}')
+            '{reviewers: ["sharmeeh"]}')
 
           curl -s -X POST \
             -H "Authorization: Bearer $GH_PAT" \
