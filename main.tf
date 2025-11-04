@@ -1,5 +1,7 @@
-module "storage" {
-  source               = "./modules/storage_account"
-  storage_account_name = var.storage_account_name
-  location             = var.location
+module "storageacc" {
+  source            = "app.terraform.io/Sharmila/storageacc/azurerm"
+  version           = "1.0.0"
+  name_prefix       = "sharmi"  
+  location          = var.location
+  account_replication_type = "LRS"
 }
