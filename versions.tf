@@ -7,7 +7,7 @@ terraform {
   }
 
   cloud {
-    organization = "SuccPinnSolutions"
+    organization = "Sharmila"
     workspaces {
       name = "azure-storage-deploy-workspace"
     }
