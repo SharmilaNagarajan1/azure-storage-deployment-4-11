@@ -1,5 +1,6 @@
-module "storage" {
-  source               = "./modules/storage_account"
-  storage_account_name = var.storage_account_name
-  location             = var.location
+module "storageAccount" {
+  source            = "app.terraform.io/Sharmila/storageAccount/azurerm"
+  version           = "1.0.1"
+  name_prefix       = "sharmi"  
+  location          = var.location
 }
